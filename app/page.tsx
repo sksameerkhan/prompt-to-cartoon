@@ -103,8 +103,8 @@ export default function Home() {
       if (!('speechSynthesis' in window)) return resolve();
       const utter = new SpeechSynthesisUtterance(text);
       utter.rate = 0.98;
-      utter.onend = resolve;
-      utter.onerror = resolve;
+     utter.onend = () => resolve();
+      utter.onerror = () => resolve();
       window.speechSynthesis.speak(utter);
     });
   }
