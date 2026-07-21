@@ -99,7 +99,7 @@ export default function Home() {
   }
 
   function speak(text) {
-    return new Promise((resolve) => {
+   return new Promise<void>((resolve) => {
       if (!('speechSynthesis' in window)) return resolve();
       const utter = new SpeechSynthesisUtterance(text);
       utter.rate = 0.98;
